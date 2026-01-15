@@ -6,16 +6,16 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:52:04 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/13 20:55:28 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:52:32 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-static void	swap(t_list **l)
+static void	swap(t_node **l)
 {
-	t_list	*first;
-	t_list	*second;
+	t_node	*first;
+	t_node	*second;
 
 	if (!l || !*l || !(*l)->next)
 		return ;
@@ -26,19 +26,19 @@ static void	swap(t_list **l)
 	*l = second;
 }
 
-void	sa(t_list **a)
+void	sa(t_node **a)
 {
 	swap(a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_list **b)
+void	sb(t_node **b)
 {
 	swap(b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_node **a, t_node **b)
 {
 	swap(a);
 	swap(b);

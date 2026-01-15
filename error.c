@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:59:09 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/13 20:58:54 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:22:46 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,29 @@ int	is_digit_char(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (str[i])
+	if (str[i] == 0)
 		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
+	while (str[i]) 
+    {
+    	if (!isdigit((unsigned char)str[i])) 
+            return (0);
+        i++;
+    }
+    return (1); 
 }
 
 int	hasdup(t_list *a, int n)
 {
 	while (a)
 	{
-		if (a->content == n)
+		if (*(int *)(a->content) == n)
 			return (1);
 		a = a->next;
 	}
 	return (0);
+}
+void error(void)
+{
+    write(2, "Error\n", 6);
+    exit(EXIT_FAILURE);
 }

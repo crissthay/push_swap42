@@ -6,16 +6,16 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:07:41 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/13 20:50:04 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:51:06 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-static void	rotate(t_list **stack)
+static void	rotate(t_node **stack)
 {
-	t_list	*first;
-	t_list	*last;
+	t_node	*first;
+	t_node	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -28,19 +28,19 @@ static void	rotate(t_list **stack)
 	last->next = first;
 }
 
-void	ra(t_list **a)
+void	ra(t_node **a)
 {
 	rotate(a);
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_list **b)
+void	rb(t_node **b)
 {
 	rotate(b);
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_node **a, t_node **b)
 {
 	rotate(a);
 	rotate(b);

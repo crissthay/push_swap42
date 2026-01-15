@@ -6,11 +6,12 @@
 #    By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/28 18:44:23 by tmontezu          #+#    #+#              #
-#    Updated: 2026/01/15 13:51:37 by tmontezu         ###   ########.fr        #
+#    Updated: 2026/01/15 15:52:41 by tmontezu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+HEADER = push_swap.h
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
@@ -18,9 +19,8 @@ SRCS = rr.c \
        push.c \
        swap.c \
        rotate.c \
-	   push_swap \
 	   parse.c \
-	   error.c \
+	   error.c
 
 OBJS = $(SRCS:.c=.o)
 

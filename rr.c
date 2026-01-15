@@ -6,16 +6,16 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:09:50 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/13 20:50:25 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:37:40 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-static void	rr(t_list **stack)
+void	rer(t_node **stack)
 {
-	t_list	*second_last;
-	t_list	*last;
+	t_node	*second_last;
+	t_node	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -28,21 +28,21 @@ static void	rr(t_list **stack)
 	*stack = last;
 }
 
-void	rra(t_list **a)
+void	rera(t_node **a)
 {
-	rr(a);
+	rer(a);
 	write(1, "rra\n", 3);
 }
 
-void	rrb(t_list **b)
+void	rerb(t_node **b)
 {
-	rr(b);
+	rer(b);
 	write(1, "rrb\n", 3);
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rerr(t_node **a, t_node **b)
 {
-	rr(a);
-	rr(b);
+	rer(a);
+	rer(b);
 	write(1, "rrr\n", 3);
 }

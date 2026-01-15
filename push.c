@@ -6,15 +6,15 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 17:38:04 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/13 20:43:17 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:51:22 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_node **a, t_node **b)
 {
-	t_list	*temp;
+	t_node	*temp;
 
 	if (*b == NULL)
 		return ;
@@ -25,9 +25,9 @@ void	pa(t_list **a, t_list **b)
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_node **a, t_node **b)
 {
-	t_list	*temp;
+	t_node	*temp;
 
 	if (*a == NULL)
 		return ;

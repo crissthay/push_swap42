@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 20:44:04 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/13 20:59:08 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:23:50 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	parse_args(t_list **a, char **av)
 {
 	int		i;
 	long	n;
+	int		*value;
 
 	i = 1;
 	while (av[i])
@@ -27,7 +28,13 @@ void	parse_args(t_list **a, char **av)
 			error();
 		if (hasdup(*a, (int)n))
 			error();
-		ft_lstadd_back(a, ft_lstnew((int)n));
+		
+		value = malloc(sizeof(int));
+		if(!value)
+			error();
+		*value = (int)n;
+		t_list *new_node = ft_lstnew(value);
+		ft_lstadd_back(a, new_node);
 		i++;
 	}
 }
