@@ -6,38 +6,43 @@
 #    By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/28 18:44:23 by tmontezu          #+#    #+#              #
-#    Updated: 2026/01/15 15:52:41 by tmontezu         ###   ########.fr        #
+#    Updated: 2026/01/15 17:27:41 by tmontezu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
-HEADER = push_swap.h
-CC = cc
-FLAGS = -Wall -Wextra -Werror
+NAME    = push_swap
+HEADER  = push_swap.h
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror -I./ -I./src/libft
+RM      = rm -f
 
-SRCS = rr.c \
-       push.c \
-       swap.c \
-       rotate.c \
-	   parse.c \
-	   error.c
+SRC     = src/error.c src/parse.c src/push.c src/rotate.c src/rr.c src/swap.c
+OBJ     = $(SRC:.c=.o)
 
-OBJS = $(SRCS:.c=.o)
+LIBFT_D = src/libft
+LIBFT   = $(LIBFT_D)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
+	@echo "$(NAME) compiled"
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_D) --no-print-directory
+
+%.o: %.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@$(RM) $(OBJ)
+	@$(MAKE) clean -C $(LIBFT_D) --no-print-directory
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
+	@$(MAKE) fclean -C $(LIBFT_D) --no-print-directory
 
 re: fclean all
 
 .PHONY: all clean fclean re
+

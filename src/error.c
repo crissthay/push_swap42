@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:59:09 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/15 15:22:46 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:14:35 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	is_digit_char(char *str)
     return (1); 
 }
 
-int	hasdup(t_list *a, int n)
+int	hasdup(t_node *a, int n)
 {
 	while (a)
 	{

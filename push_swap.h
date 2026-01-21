@@ -6,14 +6,14 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:49:03 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/15 15:40:31 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:23:16 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "src/libft/libft.h"
 # include <limits.h>
 # include <stdarg.h>
 # include <stdio.h>
@@ -42,8 +42,7 @@ void				ss(t_node **a, t_node **b);
 // error
 long	ft_atol(const char *nptr);
 int		is_digit_char(char *str);
-int		hasdup(t_list *a, int n);
+int		hasdup(t_node *a, int n);
 void 	error(void);
-
 
 #endif

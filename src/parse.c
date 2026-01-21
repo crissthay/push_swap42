@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 20:44:04 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/15 15:23:50 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:34:46 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ void	parse_args(t_list **a, char **av)
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			error();
-		if (hasdup(*a, (int)n))
+		if (hasdup((t_node *)*a, (int)n))
 			error();
-		
 		value = malloc(sizeof(int));
 		if(!value)
 			error();
