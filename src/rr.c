@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:09:50 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/15 15:37:40 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/02/09 20:59:17 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ void	rer(t_node **stack)
 	*stack = last;
 }
 
-void	rera(t_node **a)
+void	rra(t_node **a)
 {
 	rer(a);
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
-void	rerb(t_node **b)
+void	rrb(t_node **b)
 {
 	rer(b);
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
-void	rerr(t_node **a, t_node **b)
+void	rrr(t_node **a, t_node **b)
 {
 	rer(a);
 	rer(b);
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }

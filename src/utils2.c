@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ultils2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/30 17:38:04 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/02/09 21:07:56 by tmontezu         ###   ########.fr       */
+/*   Created: 2026/02/09 18:10:10 by tmontezu          #+#    #+#             */
+/*   Updated: 2026/02/09 19:58:24 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node **a, t_node **b)
+int	sort_minor(t_node *node)
 {
-	t_node	*temp;
+	int	index;
+	int	min;
+	int	index_min;
+	t_node	*new_node;
 
-	if (*b == NULL)
-		return ;
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = *a;
-	*a = temp;
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_node **a, t_node **b)
-{
-	t_node	*temp;
-
-	if (*a == NULL)
-		return ;
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = *b;
-	*b = temp;
-	write(1, "pb\n", 3);
+	if (!node)
+		return (0);
+	min = node->content;
+	index = 0;
+	index_min = 0;
+	new_node = node;
+	while (new_node)
+	{
+		if (new_node->content < min)
+		{
+			min = new_node->content;
+			index_min = index;
+		}
+		new_node = new_node->next;
+		index++;
+	}
+	return (index_min);
 }

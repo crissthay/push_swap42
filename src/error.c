@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmontezu <tmontezu <tmontezu@student.42    +#+  +:+       +#+        */
+/*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:59:09 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/27 17:21:47 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/02/09 20:21:27 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,39 +46,39 @@ int	is_digit_char(char *str)
 		i++;
 	if (str[i] == 0)
 		return (0);
-	while (str[i]) 
-    {
-    	if (!isdigit((unsigned char)str[i])) 
-            return (0);
-        i++;
-    }
-    return (1); 
+	while (str[i])
+	{
+		if (!isdigit((unsigned char)str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	hasdup(t_node *a, int n)
 {
 	while (a)
 	{
-		if (*(int *)(a->content) == n)
+		if ((a->content) == n)
 			return (1);
 		a = a->next;
 	}
 	return (0);
 }
 
-int is_sorted(t_node *a)
+int	is_sorted(t_node *a)
 {
-    while (a && a->next)
-    {
-        if(*(int *)a->content > *(int *)a->next->content)
-            return (0);
-        a = a->next;
-    }
-    return (1);
+	while (a && a->next)
+	{
+		if (a->content > a->next->content)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }
 
-void error(void)
+void	error(void)
 {
-    write(2, "Error\n", 6);
-    exit(EXIT_FAILURE);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
