@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: tmontezu <tmontezu <tmontezu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:59:09 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/15 17:14:35 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:21:47 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,18 @@ int	hasdup(t_node *a, int n)
 	}
 	return (0);
 }
+
+int is_sorted(t_node *a)
+{
+    while (a && a->next)
+    {
+        if(*(int *)a->content > *(int *)a->next->content)
+            return (0);
+        a = a->next;
+    }
+    return (1);
+}
+
 void error(void)
 {
     write(2, "Error\n", 6);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: tmontezu <tmontezu <tmontezu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:49:03 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/01/15 17:23:16 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/02/09 00:27:23 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <ctype.h>
+# include <stdlib.h>
+
 
 typedef struct s_node
 {	
@@ -44,5 +46,12 @@ long	ft_atol(const char *nptr);
 int		is_digit_char(char *str);
 int		hasdup(t_node *a, int n);
 void 	error(void);
+int 	is_sorted(t_node *a);
+void 	free_all(t_node *a);
+void	ft_index(t_node *a);
+t_node	*node_new(int *value);
+void    node_add_back(t_node **a, t_node *new);
+
+
 
 #endif
