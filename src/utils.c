@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:50:06 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/02/09 21:03:19 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:21:52 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	index_node(t_node *a)
 				count++;
 			temp2 = temp2->next;
 		}
-		temp1->content = count;
+		temp1->index = count;
 		temp1 = temp1->next;
 	}
 }
@@ -46,16 +46,17 @@ void	free_all(t_node *a)
 	}
 }
 
-t_node *node_new(int value)
+t_node	*node_new(int value)
 {
-    t_node *node;
+	t_node	*node;
 
-    node = malloc(sizeof(t_node));
-    if (!node)
-        return (NULL);
-    node->content = value;
-    node->next = NULL;
-    return (node);
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->content = value;
+	node->index = 0;
+	node->next = NULL;
+	return (node);
 }
 
 void	node_add_back(t_node **a, t_node *new)
@@ -85,6 +86,5 @@ int	tf_lstsize(t_node *lst)
 		lst = lst->next;
 		len++;
 	}
-	printf("len: %d\n", len);
 	return (len);
 }

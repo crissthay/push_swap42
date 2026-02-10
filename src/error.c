@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:59:09 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/02/09 20:21:27 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:21:25 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ long	ft_atol(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');
+		if (result > INT_MAX)
+			return ((long)(INT_MAX) + 1);
 		i++;
 	}
 	return (result * sign);
@@ -77,8 +79,9 @@ int	is_sorted(t_node *a)
 	return (1);
 }
 
-void	error(void)
+void	error(t_node *a)
 {
 	write(2, "Error\n", 6);
+	free_all(a);
 	exit(EXIT_FAILURE);
 }

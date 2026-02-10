@@ -6,7 +6,7 @@
 /*   By: tmontezu <tmontezu@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:49:03 by tmontezu          #+#    #+#             */
-/*   Updated: 2026/02/09 20:41:31 by tmontezu         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:21:11 by tmontezu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_node
 {
 	int				content;
+	int				index;
 	struct s_node	*next;
 }					t_node;
 
@@ -45,7 +46,7 @@ long				ft_atol(const char *nptr);
 int					is_digit_char(char *str);
 int					is_sorted(t_node *a);
 int					hasdup(t_node *a, int n);
-void				error(void);
+void				error(t_node *a);
 
 // parse
 void				parse_args(t_node **a, char **av);
@@ -65,5 +66,11 @@ t_node				*node_new(int value);
 
 // ultils2
 int					sort_minor(t_node *node);
+void				free_split(char **split);
+void				free_list(char **nums, t_node **a);
+
+// sort
+void				radix_sort(t_node **a, t_node **b);
+int					bits_nedded(int b);
 
 #endif
